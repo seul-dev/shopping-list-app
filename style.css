@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+}
+
+body {
+  background-color: rgb(230, 249, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Jua', sans-serif;
+}
+
+.shopping-list-container {
+  width: 20rem;
+  height: 30rem;
+  background-color: rgb(255, 218, 237);
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: first baseline;
+  border-radius: 5%;
+}
+
+h2 {
+  margin: 20px;
+}
+
+ul {
+  text-align: left;
+  list-style: none;
+  height: 73%;
+}
+li {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+.fa-solid {
+  margin-right: 20px;
+}
+input {
+  width: 70%;
+  border: none;
+  height: 80%;
+  border-radius: 10px;
+}
+
+.addBtn {
+  background: #ccccff;
+  border-radius: 999px;
+  box-shadow: #a2a2db 0 10px 20px -10px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 8px 18px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
+  font-size: 30px;
+}
+
+.addBtn:hover {
+  transform: translateY(-1px);
+}
+
+.addBtn:active {
+  box-shadow: #a2a2db 0 10px 20px -10px;
+  transform: translateY(1px);
+}
