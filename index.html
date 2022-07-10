@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Shopping List</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,16 +15,28 @@
 </head>
 
 <body>
-    <div class="shopping-list-container">
-        <h2>Shopping list</h2>
-        <ul class="shopping-item-list">
-            <li class='shopping-item'>수박 한 통<i class="fa-solid fa-trash-can"></i></li>
+    <section class="list">
+        <header class="header">Shopping List</header>
+        <ul class="items">
+            <li class="item__row">
+                <div class="item">
+                    <span class="item__name">Milk
+                    </span>
+                    <button class="item__delete">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                </div>
+                <div class="item__dividor"></div>
+            </li>
         </ul>
-        <div class="input-container">
-            <input type="text">
-            <button class="addBtn">+</button>
-        </div>
-    </div>
+        <footer class="footer">
+            <input type="text" class="footer__input">
+            <button class="footer__button">
+                <i class="fa-solid fa-plus"></i>
+            </button>
+
+        </footer>
+    </section>
 </body>
 
 </html>
