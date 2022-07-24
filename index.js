@@ -17,6 +17,8 @@ function saveShoppingItems() {
 }
 
 function deleteItem(itemRowId) {
+  const toBeDeleted = document.querySelector(`.item__row[id="${itemRowId}"]`);
+  toBeDeleted.remove();
   shoppingItems = shoppingItems.filter(
     (item) => item.id !== parseInt(itemRowId)
   );
@@ -27,29 +29,15 @@ function paintItem(newItem) {
   const itemRow = document.createElement('li');
   itemRow.setAttribute('class', 'item__row');
   itemRow.id = newItem.id;
-
-  const item = document.createElement('div');
-  item.setAttribute('class', 'item');
-
-  const span = document.createElement('span');
-  span.setAttribute('class', 'item__name');
-  span.innerText = newItem.text;
-
-  const deleteBtn = document.createElement('button');
-  deleteBtn.setAttribute('class', 'item__delete');
-  deleteBtn.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
-  deleteBtn.addEventListener('click', () => {
-    items.removeChild(itemRow);
-    deleteItem(itemRow.id);
-  });
-
-  const itemDividor = document.createElement('div');
-  itemDividor.setAttribute('class', 'item__dividor');
-
-  item.appendChild(span);
-  item.appendChild(deleteBtn);
-  itemRow.appendChild(item);
-  itemRow.appendChild(itemDividor);
+  itemRow.innerHTML = `
+    <div class="item">
+      <span class="item__name">${newItem.text}</span>
+      <button class="item__delete">
+        <i class="fa-solid fa-trash-can" data-id=${itemRow.id}></i>
+      </button>
+    </div>
+    <div class="item__dividor"></div>
+  `;
   items.appendChild(itemRow);
   itemRow.scrollIntoView({ block: 'center' });
 }
@@ -73,5 +61,12 @@ addBtn.addEventListener('click', onAdd);
 input.addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
     onAdd();
+  }
+});
+
+items.addEventListener('click', (event) => {
+  const id = event.target.dataset.id;
+  if (id) {
+    deleteItem(id);
   }
 });
