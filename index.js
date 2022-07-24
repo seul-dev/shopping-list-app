@@ -1,6 +1,6 @@
 const items = document.querySelector('.items');
 const input = document.querySelector('.footer__input');
-const addBtn = document.querySelector('.footer__button');
+const form = document.querySelector('.footer__form');
 
 const Items = 'items';
 let shoppingItems = [];
@@ -56,16 +56,13 @@ function onAdd() {
   input.focus();
 }
 
-addBtn.addEventListener('click', onAdd);
-
-input.addEventListener('keypress', (e) => {
-  if (e.key === 'Enter') {
-    onAdd();
-  }
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  onAdd();
 });
 
-items.addEventListener('click', (event) => {
-  const id = event.target.dataset.id;
+items.addEventListener('click', (e) => {
+  const id = e.target.dataset.id;
   if (id) {
     deleteItem(id);
   }
